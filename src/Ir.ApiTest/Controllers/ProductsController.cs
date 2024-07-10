@@ -44,7 +44,7 @@ public class ProductsController : ControllerBase
   [HttpPost()]
   public async Task<ActionResult<bool>> CreateProduct([FromBody] Product product)
   {
-    if(product == null)
+    if(product == null || string.IsNullOrEmpty(product.Id))
     {
       return BadRequest();
     }
